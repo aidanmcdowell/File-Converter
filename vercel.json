@@ -1,15 +1,7 @@
 {
   "routes": [
-    {
-      "src": "/api/convert",
-      "dest": "/api/convert.js"
-    },
-    {
-      "handle": "filesystem"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/public/index.html"
-    }
+    { "src": "/api/convert", "dest": "/api/convert.js" },
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "dest": "/public/index.html" }
   ]
 }
