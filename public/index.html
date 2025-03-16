@@ -1,56 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aidan's File Converter</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Aidan's File Converter</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>File Converter</h1>
-        <div id="drop-area">
-            <form class="upload-form">
-                <p>Upload a file using drag and drop or click below</p>
-                <input type="file" id="fileInput" hidden>
-                <button type="button" id="uploadButton">Choose File</button>
-                <div id="file-info"></div>
-            </form>
-        </div>
-        <div class="conversion-options" style="display: none;">
-            <h3>Convert to:</h3>
-            <select id="formatSelect">
-                <optgroup label="Images">
-                    <option value="png">PNG</option>
-                    <option value="jpg">JPG</option>
-                    <option value="webp">WebP</option>
-                    <option value="gif">GIF</option>
-                </optgroup>
-                <optgroup label="Documents">
-                    <option value="pdf">PDF</option>
-                    <option value="docx">DOCX</option>
-                    <option value="txt">TXT</option>
-                </optgroup>
-                <optgroup label="Audio">
-                    <option value="mp3">MP3</option>
-                    <option value="wav">WAV</option>
-                    <option value="ogg">OGG</option>
-                </optgroup>
-                <optgroup label="Video">
-                    <option value="mp4">MP4</option>
-                    <option value="avi">AVI</option>
-                    <option value="webm">WebM</option>
-                </optgroup>
-            </select>
-            <button id="convertButton">Convert</button>
-        </div>
-        <div id="progress" style="display: none;">
-            <div class="progress-bar">
-                <div class="progress-fill"></div>
-            </div>
-            <p id="status">Converting...</p>
-        </div>
+  <div class="container">
+    <h1>File Converter</h1>
+    <div id="drop-area">
+      <form class="upload-form">
+        <p>Upload a file using drag and drop or click below</p>
+        <input type="file" id="fileInput" hidden>
+        <button type="button" id="uploadButton">Choose File</button>
+        <div id="file-info"></div>
+      </form>
     </div>
-    <script src="script.js"></script>
+    <div class="conversion-options" style="display: none;">
+      <h3>Convert to:</h3>
+      <select id="formatSelect">
+        <optgroup label="Images">
+          <option value="png">PNG</option>
+          <option value="jpg">JPG</option>
+          <option value="webp">WebP</option>
+          <option value="gif">GIF</option>
+        </optgroup>
+        <optgroup label="Documents">
+          <option value="pdf">PDF</option>
+          <option value="docx">DOCX</option>
+          <option value="txt">TXT</option>
+        </optgroup>
+        <optgroup label="Audio">
+          <option value="mp3">MP3</option>
+          <option value="wav">WAV</option>
+          <option value="ogg">OGG</option>
+        </optgroup>
+        <optgroup label="Video">
+          <option value="mp4">MP4</option>
+          <option value="avi">AVI</option>
+          <option value="webm">WebM</option>
+        </optgroup>
+      </select>
+      <button id="convertButton">Convert</button>
+    </div>
+    <div id="progress" style="display: none;">
+      <div class="progress-bar">
+        <div class="progress-fill"></div>
+      </div>
+      <p id="status">Converting...</p>
+    </div>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
