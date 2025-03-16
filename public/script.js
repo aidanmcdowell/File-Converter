@@ -1,25 +1,49 @@
-async function convertFile() {
-    const formData = new FormData();
-    formData.append('file', currentFile);
-    formData.append('targetFormat', formatSelect.value);
+const fileInput = document.getElementById('fileInput');
+const uploadButton = document.getElementById('uploadButton');
+const convertButton = document.getElementById('convertButton');
+const formatSelect = document.getElementById('formatSelect');
 
-    try {
-        const response = await fetch('/api/convert', {  // ✅ Fix: Use inside async function
-            method: 'POST',
-            body: formData
-        });
+let currentFile = null;
 
-        if (!response.ok) {
-            throw new Error('Conversion failed');
-        }
+uploadButton.addEventListener('click', () => {
+  fileInput.click();
+});
 
-        const data = await response.json();
-        console.log("Conversion successful:", data);
+fileInput.addEventListener('change', (e) => {
+  currentFile = e.target.files[0];
+  // Show conversion options once file is selected
+  if (currentFile) {
+    document.querySelector('.conversion-options').style.display = 'block';
+  }
+});
 
-    } catch (error) {
-        console.error("Error:", error);
-    }
-}
+convertButton.addEventListener('click', async () => {
+  if (!currentFile) return;
 
-// Make sure convertFile() is triggered when clicking convert button
-convertButton.addEventListener
+  // Show progress (basic)
+  document.getElementById('progress').style.display = 'block';
+  document.getElementById('status').textContent = 'Converting...';
+
+  const formData = new FormData();
+  formData.append('file', currentFile);
+  formData.append('targetFormat', formatSelect.value);
+
+  try {
+    const response = await fetch('/api/convert', {
+      method: 'POST',
+      body: formData
+    });
+    if (!response.ok) throw new Error('Conversion failed');
+
+    const data = await response.json();
+    console.log('Conversion successful:', data);
+
+    // Hide progress
+    document.getElementById('status').textContent = 'Done.';
+    // If you want to show a link to download:
+    // alert(`Download file at: ${data.downloadUrl}`);
+  } catch (error) {
+    console.error('Error:', error);
+    document.getElementById('status').textContent = 'Error.';
+  }
+});
